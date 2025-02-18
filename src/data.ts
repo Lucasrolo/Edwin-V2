@@ -147,4 +147,111 @@ export const projects: Project[] = [
     description: 'Création d\'une application mobile de gestion de tâches - Projet Final',
     students: [13, 14, 15, 16, 17, 18]
   },
+  {
+    id: '4',
+    name: 'TP4 - Intelligence Artificielle',
+    description: 'Système de recommandation avec Python - Évaluation Finale',
+    students: [19, 20, 21, 22, 23, 24, 25]
+  }
+];
+
+export const codeChanges: { [key: number]: CodeChange[] } = {
+  1: [
+    {
+      id: 1,
+      timestamp: new Date('2024-02-18T10:00:00').getTime(),
+      description: 'Implémentation de la fonction de recherche',
+      linesAdded: 15,
+      linesRemoved: 0,
+      alerts: ['AI'],
+      code: `function searchProducts(query) {
+  // Utilisation d'une regex complexe pour la recherche
+  const regex = new RegExp(\`^.*\${query}.*$\`, 'i');
   
+  // Algorithme de recherche sophistiqué
+  return products.filter(product => {
+    const score = calculateMatchScore(product, query);
+    return score > 0.8;
+  }).sort((a, b) => {
+    return calculateMatchScore(b, query) - calculateMatchScore(a, query);
+  });
+}`
+    },
+    {
+      id: 2,
+      timestamp: new Date('2024-02-18T10:30:00').getTime(),
+      description: 'Correction des bugs de recherche',
+      linesAdded: 5,
+      linesRemoved: 2,
+      code: `function searchProducts(query) {
+  // Version simplifiée et plus maintenable
+  return products.filter(product => 
+    product.name.toLowerCase().includes(query.toLowerCase())
+  );
+}`
+    }
+  ],
+  2: [
+    {
+      id: 3,
+      timestamp: new Date('2024-02-18T11:00:00').getTime(),
+      description: 'Premier essai d\'algorithme de tri',
+      linesAdded: 10,
+      linesRemoved: 0,
+      alerts: ['DIFFICULTY'],
+      code: `function bubbleSort(arr) {
+  // Tentative de tri à bulles avec des erreurs
+  for(let i = 0; i < arr.length; i++) {
+    for(let j = 0; j < arr.length; j++) {
+      if(arr[i] > arr[j]) {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+}`
+    },
+    {
+      id: 4,
+      timestamp: new Date('2024-02-18T11:30:00').getTime(),
+      description: 'Correction de l\'algorithme de tri',
+      linesAdded: 12,
+      linesRemoved: 10,
+      code: `function bubbleSort(arr) {
+  // Version corrigée avec optimisation
+  for(let i = 0; i < arr.length - 1; i++) {
+    for(let j = 0; j < arr.length - i - 1; j++) {
+      if(arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+}`
+    }
+  ],
+  3: [
+    {
+      id: 5,
+      timestamp: new Date('2024-02-18T14:00:00').getTime(),
+      description: 'Implémentation de l\'authentification',
+      linesAdded: 20,
+      linesRemoved: 0,
+      alerts: ['AI'],
+      code: `async function authenticateUser(email, password) {
+  // Implémentation complexe générée par IA
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const token = jwt.sign(
+    { email, role: 'user' },
+    process.env.JWT_SECRET,
+    { expiresIn: '24h' }
+  );
+  
+  return {
+    token,
+    user: await User.findOne({ email })
+  };
+}`
+    }
+  ]
+};
