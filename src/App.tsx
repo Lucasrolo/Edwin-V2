@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, ChevronRight, Search, Sun, Moon } from 'lucide-react';
+import { BookOpen, ChevronRight, Search, Sun, Moon, Code } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { students, projects } from './data';
 import { StudentList } from './components/StudentList';
@@ -28,25 +28,30 @@ function AppContent() {
   if (currentRole === 'student') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-edwin-light to-white dark:from-edwin-dark dark:to-edwin-dark-800 transition-colors duration-200">
-        <div className="relative overflow-hidden rounded-b-2xl bg-gradient-to-r from-edwin-primary to-edwin-secondary p-8 text-white shadow-lg">
-          <div className="relative z-10 flex justify-between items-center">
-            <div>
-              <h1 className="text-4xl font-bold mb-2">Edwin</h1>
-              <p className="text-white/80">Assistant Pédagogique Intelligent</p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <RoleSelector currentRole={currentRole} onRoleChange={setCurrentRole} />
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                aria-label="Toggle theme"
-              >
-                {theme === 'light' ? (
-                  <Moon className="w-5 h-5 text-white" />
-                ) : (
-                  <Sun className="w-5 h-5 text-white" />
-                )}
-              </button>
+        <div className="container mx-auto px-4 py-8">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-edwin-primary to-edwin-secondary p-8 text-white shadow-lg mb-8">
+            <div className="relative z-10 flex justify-between items-start">
+              <div>
+                <div className="flex items-center space-x-3 mb-2">
+                  <Code className="w-8 h-8" />
+                  <h1 className="text-4xl font-bold">Edwin</h1>
+                </div>
+                <p className="text-white/80">Assistant Pédagogique Intelligent</p>
+              </div>
+              <div className="flex items-center space-x-4">
+                <RoleSelector currentRole={currentRole} onRoleChange={setCurrentRole} />
+                <button
+                  onClick={toggleTheme}
+                  className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                  aria-label="Toggle theme"
+                >
+                  {theme === 'light' ? (
+                    <Moon className="w-5 h-5 text-white" />
+                  ) : (
+                    <Sun className="w-5 h-5 text-white" />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -67,42 +72,33 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-edwin-light to-white dark:from-edwin-dark dark:to-edwin-dark-800 transition-colors duration-200">
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-edwin-primary to-edwin-secondary p-8 text-white shadow-lg">
-            <div className="relative z-10">
-              <div className="flex justify-between items-center">
-                <div>
-                  <h1 className="text-4xl font-bold mb-2">Edwin</h1>
-                  <p className="text-white/80">Assistant Pédagogique Intelligent</p>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg">
-                    <BookOpen className="w-5 h-5 text-white" />
-                    <span className="text-white">{projects.length} Devoirs</span>
-                  </div>
-                  <RoleSelector currentRole={currentRole} onRoleChange={setCurrentRole} />
-                  <button
-                    onClick={toggleTheme}
-                    className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                    aria-label="Toggle theme"
-                  >
-                    {theme === 'light' ? (
-                      <Moon className="w-5 h-5 text-white" />
-                    ) : (
-                      <Sun className="w-5 h-5 text-white" />
-                    )}
-                  </button>
-                </div>
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-edwin-primary to-edwin-secondary p-8 text-white shadow-lg mb-8">
+          <div className="relative z-10 flex justify-between items-start">
+            <div>
+              <div className="flex items-center space-x-3 mb-2">
+                <Code className="w-8 h-8" />
+                <h1 className="text-4xl font-bold">Edwin</h1>
               </div>
+              <p className="text-white/80">Assistant Pédagogique Intelligent</p>
             </div>
-            <div
-              className="absolute inset-0 bg-gradient-to-r from-edwin-primary to-edwin-secondary opacity-50"
-              style={{
-                backgroundSize: '200% 200%',
-                animation: 'gradient 15s ease infinite',
-              }}
-            />
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg">
+                <BookOpen className="w-5 h-5 text-white" />
+                <span className="text-white">{projects.length} Devoirs</span>
+              </div>
+              <RoleSelector currentRole={currentRole} onRoleChange={setCurrentRole} />
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                aria-label="Toggle theme"
+              >
+                {theme === 'light' ? (
+                  <Moon className="w-5 h-5 text-white" />
+                ) : (
+                  <Sun className="w-5 h-5 text-white" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
 
