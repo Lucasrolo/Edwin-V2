@@ -150,7 +150,7 @@ export const projects: Project[] = [
   {
     id: '4',
     name: 'TP4 - Intelligence Artificielle',
-    description: 'Système de recommandation avec Python - Évaluation Finale',
+    description: 'Implémentation d\'un algorithme de Deep Learning - Projet Final',
     students: [19, 20, 21, 22, 23, 24, 25]
   }
 ];
